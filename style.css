@@ -174,7 +174,6 @@ header .aktionen button:hover { opacity: 0.7; }
   }
 }
 
-/* Linke Seite: Text */
 .hero-text {
   display: flex;
   flex-direction: column;
@@ -242,7 +241,6 @@ header .aktionen button:hover { opacity: 0.7; }
   color: var(--text-gedimmt);
 }
 
-/* Rechte Seite: Bild */
 .hero-bild-bereich {
   position: relative;
   display: flex;
@@ -274,7 +272,6 @@ header .aktionen button:hover { opacity: 0.7; }
 
 .hero-pflanzenbild:hover { transform: rotate(0deg); }
 
-/* Schwebende Pflegekarte */
 .pflegekarte {
   position: absolute;
   bottom: 3rem;
@@ -327,23 +324,307 @@ header .aktionen button:hover { opacity: 0.7; }
 }
 
 /* ─────────────────────────────────────────
-   Kategorien
+   Journal 
    ───────────────────────────────────────── */
-.kategorien {
-  padding: 6rem 2rem;
+.journal {
   background-color: var(--flaeche-hell);
+  border-radius: 3rem;
+  margin: 2rem 1rem 6rem;
+  padding: 4rem 1.5rem;
+  overflow: hidden;
 }
 
-.kategorien-innen {
+@media (min-width: 768px) {
+  .journal { 
+    margin: 4rem 2rem 6rem; 
+    padding: 6rem 3rem; 
+  }
+}
+
+.journal-innen {
+  max-width: var(--max-breite);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .journal-innen { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 5rem; 
+  }
+}
+
+.journal-text { order: 2; }
+@media (min-width: 1024px) { .journal-text { order: 1; } }
+
+.journal-text h2 {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gruen-dunkel);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.journal-beschreibung {
+  font-size: 1.125rem;
+  color: var(--text-gedimmt);
+  line-height: 1.7;
+  max-width: 32rem;
+  margin-bottom: 2.5rem;
+}
+
+.journal-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .journal-features { grid-template-columns: 1fr 1fr; }
+}
+
+.journal-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(194, 200, 194, 0.2);
+}
+
+.feature-icon {
+  color: var(--terrakotta);
+  font-size: 1.5rem;
+}
+
+.feature-inhalt h4 {
+  font-family: var(--schrift-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.feature-inhalt p {
+  font-size: 0.75rem;
+  color: var(--text-gedimmt);
+  line-height: 1.4;
+}
+
+.btn-journal {
+  background-color: var(--gruen);
+  color: #fff;
+  padding: 1.25rem 3rem;
+  border-radius: var(--radius-rund);
+  font-size: 1.125rem;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(45, 71, 57, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-journal:hover {
+  background-color: var(--gruen-dunkel);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(45, 71, 57, 0.3);
+}
+
+.btn-journal:active { transform: scale(0.98); }
+
+.journal-visual {
+  order: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+@media (min-width: 1024px) { 
+  .journal-visual { 
+    order: 2; 
+    justify-content: flex-end; 
+  } 
+}
+
+.journal-visual-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.journal-karte {
+  background-color: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(194, 200, 194, 0.2);
+  position: relative;
+  z-index: 20;
+}
+
+.journal-karte-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.journal-karte-header span:first-child {
+  font-family: var(--schrift-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.journal-karte-header .material-symbols-outlined { color: var(--rand); }
+
+.journal-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.journal-task {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.journal-task.aktiv {
+  background-color: rgba(149, 72, 43, 0.05); /* terrakotta tint */
+  border-left: 4px solid var(--terrakotta);
+}
+
+.journal-task.aktiv .material-symbols-outlined:first-child {
+  color: var(--terrakotta);
+  font-size: 1.875rem;
+}
+
+.journal-task.aktiv .task-label { color: var(--terrakotta); }
+
+.journal-task.notiz {
+  background-color: rgba(45, 71, 57, 0.05); /* gruen tint */
+  border-left: 4px solid var(--gruen);
+  opacity: 0.8;
+}
+
+.journal-task.notiz .material-symbols-outlined:first-child {
+  color: var(--gruen);
+  font-size: 1.875rem;
+}
+
+.journal-task.notiz .task-label { color: var(--gruen); }
+
+.task-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.125rem;
+}
+
+.task-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.journal-task .chevron {
+  margin-left: auto;
+  color: var(--rand);
+}
+
+.journal-users {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(194, 200, 194, 0.3);
+}
+
+.user-avatars {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.user-avatars img, .user-more {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  margin-left: -0.75rem;
+}
+
+.user-avatars img:first-child { margin-left: 0; }
+
+.user-more {
+  background-color: var(--flaeche);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--text);
+  z-index: 1;
+}
+
+.journal-users p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-gedimmt);
+}
+
+.journal-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 10;
+}
+
+.journal-glow-1 {
+  top: -2.5rem;
+  right: -2.5rem;
+  width: 16rem;
+  height: 16rem;
+  background-color: rgba(149, 72, 43, 0.15); /* terrakotta glow */
+}
+
+.journal-glow-2 {
+  bottom: -2.5rem;
+  left: -2.5rem;
+  width: 18rem;
+  height: 18rem;
+  background-color: rgba(45, 71, 57, 0.1); /* gruen glow */
+}
+
+
+
+/* ─────────────────────────────────────────
+   Kategorien  
+   ───────────────────────────────────────── */
+.kategorien {
+  padding: 8rem 2rem;
   max-width: var(--max-breite);
   margin: 0 auto;
 }
 
 .kategorien-kopf {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .kategorien-kopf {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 }
 
 .kategorien-kopf h2 {
@@ -352,18 +633,14 @@ header .aktionen button:hover { opacity: 0.7; }
   margin-top: 0.5rem;
 }
 
-.link-mit-pfeil {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-weight: 500;
-  color: var(--gruen-dunkel);
-  transition: text-decoration 0.2s;
+.kategorien-beschreibung {
+  font-size: 0.875rem;
+  color: var(--text-gedimmt);
+  max-width: 18rem;
+  line-height: 1.7;
 }
 
-.link-mit-pfeil:hover { text-decoration: underline; }
-
-/* Karten-Raster */
+/* 3-spaltiges Raster mit hochformatigen Karten */
 .kategorien-raster {
   display: grid;
   grid-template-columns: 1fr;
@@ -372,16 +649,18 @@ header .aktionen button:hover { opacity: 0.7; }
 
 @media (min-width: 768px) {
   .kategorien-raster {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Gemeinsame Basis aller Kategorie-Karten */
+/* Einzelne Kategorie-Karte */
 .kategorie-karte {
   position: relative;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: var(--radius);
-  background-color: #fff;
+  background-color: var(--flaeche);
+  cursor: pointer;
 }
 
 .kategorie-karte img {
@@ -393,88 +672,44 @@ header .aktionen button:hover { opacity: 0.7; }
   transition: transform 0.7s ease;
 }
 
-.kategorie-karte:hover img { transform: scale(1.1); }
+.kategorie-karte:hover img {
+  transform: scale(1.1);
+}
 
+/* Dunkler Farbverlauf von unten */
 .kategorie-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(23, 49, 36, 0.6), transparent);
 }
 
-.kategorie-overlay.dunkel {
-  background-color: rgba(23, 49, 36, 0.2);
-}
-
+/* Text unten links */
 .kategorie-text {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
+  right: 2rem;
   color: #fff;
-}
-
-.kategorie-text.zentriert {
-  inset: 0;
-  bottom: auto;
-  left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 .kategorie-text h3 {
   font-family: var(--schrift-serif);
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-style: italic;
 }
 
-.kategorie-text p {
-  font-weight: 300;
-  opacity: 0.9;
-  margin-bottom: 1rem;
+/* Untertitel erscheint beim Hover */
+.kategorie-untertitel {
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.85);
+  transition: opacity 0.3s ease;
 }
 
-.untertitel-breit {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-}
-
-.pfeil-icon {
-  font-size: 2rem;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-}
-
-.kategorie-karte:hover .pfeil-icon { opacity: 1; }
-
-.btn-erkunden {
-  padding: 0.4rem 1.25rem;
-  border-radius: var(--radius-rund);
-  border: 1px solid rgba(255,255,255,0.3);
-  backdrop-filter: blur(4px);
-  color: #fff;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.btn-erkunden:hover {
-  background-color: #fff;
-  color: var(--gruen-dunkel);
-}
-
-/* Kartengrössen */
-.kategorie-karte.gross  { grid-column: span 2; height: 400px; }
-.kategorie-karte.klein  { grid-column: span 1; height: 400px; }
-.kategorie-karte.breit  { grid-column: span 4; height: 280px; }
-
-@media (max-width: 767px) {
-  .kategorie-karte.gross,
-  .kategorie-karte.klein,
-  .kategorie-karte.breit { grid-column: span 1; height: 280px; }
+.kategorie-karte:hover .kategorie-untertitel {
+  opacity: 1;
 }
 
 /* ─────────────────────────────────────────
@@ -517,7 +752,6 @@ header .aktionen button:hover { opacity: 0.7; }
   .bewertungen-raster { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Einzelne Bewertungskarte */
 .bewertungskarte {
   background-color: #fff;
   padding: 2rem;
