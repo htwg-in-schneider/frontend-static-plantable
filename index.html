@@ -13,27 +13,47 @@
 <body>
 
   <header>
-    <div class="header-innen">
-      <a href="index.html" class="logo">Plantable</a>
+  <div class="header-innen">
+    <a href="index.html" class="logo">Plantable</a>
 
-      <nav>
-        <a href="catalog.html">Catalog</a>
-        <a href="community.html">Community</a>
-        <a href="dashboard.html">Dashboard</a>
-      </nav>
+    <nav id="nav-menu">
+      <a href="catalog.html">Catalog</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
 
-      <div class="aktionen">
-        <button aria-label="Warenkorb">
-          <span class="material-symbols-outlined">shopping_cart</span>
-        </button>
-        <button aria-label="Profil">
-          <span class="material-symbols-outlined">person</span>
-        </button>
-      </div>
+    <div class="aktionen">
+      <button aria-label="Warenkorb">
+        <span class="material-symbols-outlined">shopping_cart</span>
+      </button>
+      <button aria-label="Profil" class="desktop-only">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+      
+      <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
     </div>
-    <div class="trennlinie"></div>
-  </header>
+  </div>
+  <div class="trennlinie"></div>
+</header>
 
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const icon = hamburgerBtn.querySelector('.material-symbols-outlined');
+
+  hamburgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('offen');
+    
+    // Icon zwischen 'menu' und 'close' wechseln
+    if (navMenu.classList.contains('offen')) {
+      icon.textContent = 'close';
+    } else {
+      icon.textContent = 'menu';
+    }
+  });
+</script>
   <main>
 
     <section class="hero">
@@ -222,7 +242,7 @@
             <div class="kategorie-overlay"></div>
             <div class="kategorie-text">
               <h3>Palms</h3>
-              <p class="kategorie-untertitel">Tropisches Volumen</p>
+              <p class="kategorie-untertitel"></p>
             </div>
           </div>
 

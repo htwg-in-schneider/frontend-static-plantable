@@ -144,6 +144,48 @@ header .aktionen button:hover { opacity: 0.7; }
   height: 1px;
   background-color: var(--flaeche);
 }
+/* Hamburger Button standardmäßig verstecken */
+.hamburger {
+  display: none;
+  color: var(--gruen);
+}
+
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .hamburger {
+    display: block; /* Hamburger nur mobil zeigen */
+    z-index: 1001;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    height: 100vh;
+    background-color: var(--hintergrund);
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  
+  header nav.offen {
+    right: 0;
+  }
+
+
+  header nav a {
+    font-size: 1.5rem;
+  }
+}
 
 /* ─────────────────────────────────────────
    Hero
