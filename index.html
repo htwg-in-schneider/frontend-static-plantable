@@ -17,7 +17,7 @@
     <a href="index.html" class="logo">Plantable</a>
 
     <nav id="nav-menu">
-      <a href="catalog.html">Catalog</a>
+      <a href="catalog.html">Katalog</a>
       <a href="community.html">Community</a>
       <a href="dashboard.html">Dashboard</a>
     </nav>
@@ -46,7 +46,6 @@
   hamburgerBtn.addEventListener('click', () => {
     navMenu.classList.toggle('offen');
     
-    // Icon zwischen 'menu' und 'close' wechseln
     if (navMenu.classList.contains('offen')) {
       icon.textContent = 'close';
     } else {
@@ -54,23 +53,24 @@
     }
   });
 </script>
+
   <main>
 
     <section class="hero">
       <div class="hero-innen">
 
         <div class="hero-text">
-          <span class="etikett">Plant of the Week</span>
+          <span class="etikett">Pflanze der Woche</span>
           <h1>Monstera <br/><em>Deliciosa</em></h1>
-          <p>A sculptural masterpiece of nature, known for its iconic Swiss-cheese heart leaves and effortless grace.</p>
+          <p>Ein lebendiges Kunstwerk – mit ihren großen, gefensterten Blättern bringt sie tropisches Flair in jeden Raum.</p>
           <div class="hero-kaufen">
             <button class="btn-kaufen">
-              Acquire Specimen
+              Jetzt kaufen
               <span class="material-symbols-outlined">arrow_forward</span>
             </button>
             <div class="preis-block">
-              <span class="preis">$48.00</span>
-              <span class="preis-hinweis">In Ceramic Pot</span>
+              <span class="preis">48,00 €</span>
+              <span class="preis-hinweis">inkl. Keramiktopf</span>
             </div>
           </div>
         </div>
@@ -88,8 +88,8 @@
                 <span class="material-symbols-outlined">light_mode</span>
               </div>
               <div>
-                <span class="pflege-label">Light Preference</span>
-                <span class="pflege-wert">Bright Indirect</span>
+                <span class="pflege-label">Lichtbedarf</span>
+                <span class="pflege-wert">Helles, indirektes Licht</span>
               </div>
             </div>
             <div class="pflegekarte-zeile">
@@ -97,8 +97,8 @@
                 <span class="material-symbols-outlined">water_drop</span>
               </div>
               <div>
-                <span class="pflege-label">Water Cycle</span>
-                <span class="pflege-wert">Every 7–10 Days</span>
+                <span class="pflege-label">Gießrhythmus</span>
+                <span class="pflege-wert">Alle 7–10 Tage</span>
               </div>
             </div>
           </div>
@@ -110,44 +110,44 @@
     <section class="journal">
       <div class="journal-innen">
         <div class="journal-text">
-          <h2>Your Personal <br/>Botanical Journal</h2>
+          <h2>Dein persönliches <br/>botanisches Tagebuch</h2>
           <p class="journal-beschreibung">
-            Transform your plant collection into a living archive. Track growth, receive seasonal notifications, and connect with fellow enthusiasts.
+            Verwandle deine Pflanzensammlung in ein lebendiges Archiv. Verfolge das Wachstum, erhalte saisonale Erinnerungen und tausche dich mit Gleichgesinnten aus.
           </p>
           
           <div class="journal-features">
             <div class="journal-feature">
               <span class="material-symbols-outlined feature-icon">water_drop</span>
               <div class="feature-inhalt">
-                <h4>Watering Reminders</h4>
-                <p>Custom schedules based on your local climate.</p>
+                <h4>Gießerinnerungen</h4>
+                <p>Individuelle Pläne, abgestimmt auf dein lokales Klima.</p>
               </div>
             </div>
             <div class="journal-feature">
               <span class="material-symbols-outlined feature-icon">school</span>
               <div class="feature-inhalt">
-                <h4>Expert Tips</h4>
-                <p>Encyclopedia-grade care data.</p>
+                <h4>Expertenwissen</h4>
+                <p>Fundierte Pflegeinfos auf Enzyklopädie-Niveau.</p>
               </div>
             </div>
             <div class="journal-feature">
               <span class="material-symbols-outlined feature-icon">calendar_today</span>
               <div class="feature-inhalt">
-                <h4>Fertilizing Cycles</h4>
-                <p>Track nutrients for optimal growth bursts.</p>
+                <h4>Düngepläne</h4>
+                <p>Nährstoffe im Blick für optimales Wachstum.</p>
               </div>
             </div>
             <div class="journal-feature">
               <span class="material-symbols-outlined feature-icon">groups</span>
               <div class="feature-inhalt">
-                <h4>Community Exchange</h4>
-                <p>Exchange stories with fellow growers.</p>
+                <h4>Community</h4>
+                <p>Erfahrungen teilen mit anderen Pflanzenliebhabern.</p>
               </div>
             </div>
           </div>
           
           <button class="btn-journal">
-            Sign Up for the Archive
+            Jetzt dem Archiv beitreten
           </button>
         </div>
 
@@ -158,7 +158,7 @@
             
             <div class="journal-karte">
               <div class="journal-karte-header">
-                <span>Journal Preview</span>
+                <span>Tagebuch-Vorschau</span>
                 <span class="material-symbols-outlined">more_horiz</span>
               </div>
               
@@ -166,8 +166,8 @@
                 <div class="journal-task aktiv">
                   <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">potted_plant</span>
                   <div>
-                    <p class="task-label">Active Task</p>
-                    <p class="task-title">Mist your Fiddle Leaf Fig</p>
+                    <p class="task-label">Aktive Aufgabe</p>
+                    <p class="task-title">Geigenblattfeige einsprühen</p>
                   </div>
                   <span class="material-symbols-outlined chevron">chevron_right</span>
                 </div>
@@ -175,8 +175,8 @@
                 <div class="journal-task notiz">
                   <span class="material-symbols-outlined">eco</span>
                   <div>
-                    <p class="task-label">Growth Note</p>
-                    <p class="task-title">New leaf unfurled!</p>
+                    <p class="task-label">Wachstumsnotiz</p>
+                    <p class="task-title">Neues Blatt entfaltet!</p>
                   </div>
                 </div>
               </div>
@@ -188,7 +188,7 @@
                   <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="Portrait"/>
                   <div class="user-more">+2k</div>
                 </div>
-                <p>Join other plant parents archiving their journeys.</p>
+                <p>Schließ dich tausenden Pflanzeneltern an, die ihre Reise dokumentieren.</p>
               </div>
             
         </div>
@@ -200,8 +200,8 @@
 
         <div class="kategorien-kopf">
           <div>
-            <span class="etikett">EXPLORE</span>
-            <h2>Categories</h2>
+            <span class="etikett">ENTDECKEN</span>
+            <h2>Kategorien</h2>
           </div>
           <p class="kategorien-beschreibung">
            
@@ -217,8 +217,8 @@
             />
             <div class="kategorie-overlay"></div>
             <div class="kategorie-text">
-              <h3>Hanging Plants</h3>
-              <p class="kategorie-untertitel">floating elegance</p>
+              <h3>Hängepflanzen</h3>
+              <p class="kategorie-untertitel">Schwebende Eleganz</p>
             </div>
           </div>
 
@@ -229,8 +229,8 @@
             />
             <div class="kategorie-overlay"></div>
             <div class="kategorie-text">
-              <h3>Succulents</h3>
-              <p class="kategorie-untertitel">Wonders of the Desert</p>
+              <h3>Sukkulenten</h3>
+              <p class="kategorie-untertitel">Wunder der Wüste</p>
             </div>
           </div>
 
@@ -241,8 +241,8 @@
             />
             <div class="kategorie-overlay"></div>
             <div class="kategorie-text">
-              <h3>Palms</h3>
-              <p class="kategorie-untertitel"></p>
+              <h3>Palmen</h3>
+              <p class="kategorie-untertitel">Tropisches Lebensgefühl</p>
             </div>
           </div>
 
@@ -254,8 +254,8 @@
       <div class="bewertungen-innen">
 
         <div class="bewertungen-kopf">
-          <h2>Nurtured by the Community</h2>
-          <p>Real stories from real growers. Join our collective of botanical enthusiasts.</p>
+          <h2>Geliebt von unserer Community</h2>
+          <p>Echte Erfahrungen von echten Pflanzenliebhabern. Werde Teil unserer botanischen Gemeinschaft.</p>
         </div>
 
         <div class="bewertungen-raster">
@@ -268,12 +268,12 @@
               <span class="material-symbols-outlined gefallt">star</span>
               <span class="material-symbols-outlined gefallt">star</span>
             </div>
-            <p class="bewertungstext">"The Monstera I received was even more majestic than the photos. It arrived perfectly hydrated and is now the centerpiece of my living room."</p>
+            <p class="bewertungstext">„Die Monstera war noch beeindruckender als auf den Fotos. Sie kam perfekt gepflegt an und ist jetzt das Herzstück meines Wohnzimmers."</p>
             <div class="bewertungs-autor">
               <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="Elena G."/>
               <div>
                 <strong>Elena G.</strong>
-                <span>Verified Collector</span>
+                <span>Verifizierte Käuferin</span>
               </div>
             </div>
           </div>
@@ -286,12 +286,12 @@
               <span class="material-symbols-outlined gefallt">star</span>
               <span class="material-symbols-outlined">star</span>
             </div>
-            <p class="bewertungstext">"Plantable's care guides have been a lifesaver. My succulent collection has never looked healthier. Highly recommend the starter archive."</p>
+            <p class="bewertungstext">„Die Pflegeanleitungen von Plantable sind Gold wert. Meine Sukkulenten-Sammlung hat noch nie so gut ausgesehen. Das Starter-Archiv kann ich nur empfehlen."</p>
             <div class="bewertungs-autor">
               <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="Marcus W."/>
               <div>
                 <strong>Marcus W.</strong>
-                <span>Community Contributor</span>
+                <span>Community-Mitglied</span>
               </div>
             </div>
           </div>
@@ -304,12 +304,12 @@
               <span class="material-symbols-outlined gefallt">star</span>
               <span class="material-symbols-outlined gefallt">star</span>
             </div>
-            <p class="bewertungstext">"Scientific accuracy meets aesthetic beauty. Finally a shop that treats plants as living art rather than just merchandise."</p>
+            <p class="bewertungstext">„Wissenschaftliche Genauigkeit trifft auf ästhetische Schönheit. Endlich ein Shop, der Pflanzen als das behandelt, was sie sind – lebendige Kunstwerke."</p>
             <div class="bewertungs-autor">
               <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="Sarah J."/>
               <div>
                 <strong>Sarah J.</strong>
-                <span>Botanical Architect</span>
+                <span>Botanik-Enthusiastin</span>
               </div>
             </div>
           </div>
@@ -322,11 +322,11 @@
       <div class="newsletter-box">
         <img src="" alt="" class="newsletter-hintergrundbild" aria-hidden="true"/>
         <div class="newsletter-inhalt">
-          <h2><em>Grow your knowledge.</em></h2>
-          <p>Join the Newsletter for seasonal care guides, first access to rare specimens, and community events.</p>
+          <h2><em>Lass dein Wissen wachsen.</em></h2>
+          <p>Melde dich für den Newsletter an und erhalte saisonale Pflegetipps, frühen Zugang zu seltenen Pflanzen und Infos zu Community-Events.</p>
           <div class="newsletter-formular">
-            <input type="email" placeholder="Your botanical email"/>
-            <button>Subscribe</button>
+            <input type="email" placeholder="Deine E-Mail-Adresse"/>
+            <button>Anmelden</button>
           </div>
         </div>
       </div>
@@ -341,30 +341,30 @@
 
         <div class="footer-marke">
           <p class="logo">Plantable</p>
-          <p>Curating the finest botanical specimens for the modern living space. Science-led, art-driven.</p>
+          <p>Die feinsten botanischen Exemplare für moderne Wohnräume – wissenschaftlich fundiert, ästhetisch gestaltet.</p>
         </div>
 
         <div>
-          <h4>Discover</h4>
+          <h4>Entdecken</h4>
           <ul>
-            <li><a href="#">Catalog</a></li>
-            <li><a href="#">Rare Finds</a></li>
-            <li><a href="#">Care Library</a></li>
+            <li><a href="#">Katalog</a></li>
+            <li><a href="#">Raritäten</a></li>
+            <li><a href="#">Pflegebibliothek</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Connect</h4>
+          <h4>Kontakt</h4>
           <ul>
-            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Nachhaltigkeit</a></li>
             <li><a href="#">Newsletter</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Kontakt</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Archive</h4>
-          <p class="footer-copyright">© 2026 Plantable Botanical Archive. All rights reserved.</p>
+          <h4>Archiv</h4>
+          <p class="footer-copyright">© 2026 Plantable Botanisches Archiv. Alle Rechte vorbehalten.</p>
         </div>
 
       </div>
