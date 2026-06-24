@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plantable · Bild-Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ---- Konfiguration: hier bei Bedarf Repo/Ordner anpassen ---- */
+  :root{
+    --bg:#0e1310;
+    --bg-soft:#141b15;
+    --card:#19211a;
+    --card-hover:#1f2a20;
+    --line:#2a352b;
+    --text:#e7ede6;
+    --muted:#8b988b;
+    --leaf:#7ed492;
+    --leaf-dim:#4f8a61;
+    --radius:14px;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:"Space Grotesk",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(120% 80% at 100% -10%, rgba(126,212,146,.10), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    min-height:100vh;
+    padding:32px 24px 80px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+
+  header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:18px 28px;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:26px}
+  .title-block{flex:1 1 260px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf-dim)}
+  h1{font-size:clamp(24px,4vw,34px);font-weight:700;margin:6px 0 4px;letter-spacing:-.01em}
+  h1 .leaf{color:var(--leaf)}
+  .repo{font-family:var(--mono);font-size:13px;color:var(--muted);word-break:break-all}
+  .count{font-family:var(--mono);font-size:13px;color:var(--leaf);white-space:nowrap}
+
+  .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px}
+  .search{flex:1 1 220px;display:flex;align-items:center;gap:10px;background:var(--bg-soft);border:1px solid var(--line);border-radius:11px;padding:10px 14px}
+  .search input{flex:1;background:none;border:0;outline:none;color:var(--text);font-family:var(--mono);font-size:14px}
+  .search input::placeholder{color:var(--muted)}
+  .search svg{flex:none;opacity:.6}
+
+  .seg{display:inline-flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:11px;padding:3px;gap:2px}
+  .seg button{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:none;border:0;padding:7px 13px;border-radius:8px;cursor:pointer;transition:.15s}
+  .seg button:hover{color:var(--text)}
+  .seg button.active{background:var(--leaf);color:#0c130d;font-weight:500}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+  .card:hover{border-color:var(--leaf-dim);background:var(--card-hover);transform:translateY(-2px)}
+  .thumb{aspect-ratio:4/3;background:
+      linear-gradient(45deg,#11170f 25%,transparent 25%,transparent 75%,#11170f 75%),
+      linear-gradient(45deg,#11170f 25%,#161d16 25%,#161d16 75%,#11170f 75%);
+    background-size:18px 18px;background-position:0 0,9px 9px;
+    display:flex;align-items:center;justify-content:center;cursor:zoom-in;position:relative}
+  .thumb img{max-width:100%;max-height:100%;display:block}
+  .thumb .err{font-family:var(--mono);font-size:11px;color:var(--muted);padding:0 12px;text-align:center}
+
+  .meta{padding:11px 13px 13px;display:flex;flex-direction:column;gap:9px}
+  .fname{font-family:var(--mono);font-size:12.5px;color:var(--text);word-break:break-all;line-height:1.4}
+  .copy-btn{display:flex;align-items:center;justify-content:center;gap:7px;font-family:var(--mono);font-size:12.5px;font-weight:500;
+    background:var(--bg-soft);color:var(--leaf);border:1px solid var(--line);border-radius:9px;padding:8px;cursor:pointer;transition:.15s}
+  .copy-btn:hover{border-color:var(--leaf-dim);background:#10160f}
+  .copy-btn.done{background:var(--leaf);color:#0c130d;border-color:var(--leaf)}
+  .copy-btn svg{flex:none}
+
+  .state{text-align:center;padding:70px 20px;color:var(--muted);font-family:var(--mono);font-size:14px;line-height:1.7}
+  .state a{color:var(--leaf)}
+  .state.error{color:#e9b3b3}
+  .spinner{width:30px;height:30px;border:3px solid var(--line);border-top-color:var(--leaf);border-radius:50%;margin:0 auto 18px;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  footer{margin-top:40px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  footer a{color:var(--leaf-dim)}
+
+  @media (max-width:520px){body{padding:22px 14px 60px}.controls{flex-direction:column;align-items:stretch}.seg{justify-content:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="title-block">
+      <div class="eyebrow">github image picker</div>
+      <h1>Plantable<span class="leaf"> · Bilder</span></h1>
+      <div class="repo" id="repoLabel"></div>
+    </div>
+    <div class="count" id="count"></div>
+  </header>
+
+  <div class="controls">
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Dateiname filtern…" autocomplete="off">
+    </label>
+    <div class="seg" id="format">
+      <button data-fmt="url" class="active">URL</button>
+      <button data-fmt="md">Markdown</button>
+      <button data-fmt="html">&lt;img&gt;</button>
+    </div>
+  </div>
+
+  <div id="content"><div class="state"><div class="spinner"></div>Lade Bilder aus dem Repo…</div></div>
+
+  <footer>
+    Lädt live über die GitHub-API · <a id="folderLink" href="#" target="_blank" rel="noopener">Ordner auf GitHub öffnen</a>
+  </footer>
+</div>
+
+<script>
+const CONFIG = {
+  owner:  "htwg-in-schneider",
+  repo:   "frontend-static-plantable",
+  branch: "main",
+  path:   "images"
+};
+
+const IMG_EXT = ["png","jpg","jpeg","gif","svg","webp","avif","bmp","ico"];
+const $ = (s) => document.querySelector(s);
+const content = $("#content");
+let files = [];        // {name, url}
+let format = "url";
+
+document.getElementById("repoLabel").textContent = `${CONFIG.owner}/${CONFIG.repo} · /${CONFIG.path}`;
+document.getElementById("folderLink").href =
+  `https://github.com/${CONFIG.owner}/${CONFIG.repo}/tree/${CONFIG.branch}/${CONFIG.path}`;
+
+function snippet(file){
+  if(format === "md")   return `![${file.name}](${file.url})`;
+  if(format === "html") return `<img src="${file.url}" alt="${file.name}">`;
+  return file.url;
+}
+
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    return true;
+  }catch(_){
+    // Fallback für eingeschränkte Kontexte (z. B. Vorschau-Frames)
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    let ok=false; try{ ok=document.execCommand("copy"); }catch(_){}
+    document.body.removeChild(ta);
+    return ok;
+  }
+}
+
+const copyIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+const checkIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>';
+
+function render(){
+  const q = $("#search").value.trim().toLowerCase();
+  const list = files.filter(f => f.name.toLowerCase().includes(q));
+  $("#count").textContent = list.length + (list.length === 1 ? " Bild" : " Bilder");
+
+  if(!list.length){
+    content.innerHTML = `<div class="state">Keine Bilder gefunden${q ? ` für „${q}“` : ""}.</div>`;
+    return;
+  }
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  list.forEach(file => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const thumb = document.createElement("div");
+    thumb.className = "thumb";
+    thumb.title = "Klicken zum Öffnen in voller Größe";
+    thumb.onclick = () => window.open(file.url, "_blank", "noopener");
+    const img = new Image();
+    img.loading = "lazy";
+    img.alt = file.name;
+    img.src = file.url;
+    img.onerror = () => { thumb.innerHTML = '<span class="err">Vorschau nicht ladbar</span>'; };
+    thumb.appendChild(img);
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+
+    const fname = document.createElement("div");
+    fname.className = "fname";
+    fname.textContent = file.name;
+
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.innerHTML = copyIcon + "<span>Link kopieren</span>";
+    btn.onclick = async () => {
+      const ok = await copyText(snippet(file));
+      btn.classList.toggle("done", ok);
+      btn.innerHTML = (ok ? checkIcon : copyIcon) + `<span>${ok ? "Kopiert!" : "Fehlgeschlagen"}</span>`;
+      setTimeout(() => {
+        btn.classList.remove("done");
+        btn.innerHTML = copyIcon + "<span>Link kopieren</span>";
+      }, 1400);
+    };
+
+    meta.append(fname, btn);
+    card.append(thumb, meta);
+    grid.appendChild(card);
+  });
+
+  content.innerHTML = "";
+  content.appendChild(grid);
+}
+
+async function load(){
+  const api = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}?ref=${CONFIG.branch}`;
+  try{
+    const res = await fetch(api, { headers: { "Accept": "application/vnd.github+json" } });
+    if(res.status === 403){
+      content.innerHTML = `<div class="state error">GitHub-API-Limit erreicht (max. 60 Anfragen/Stunde ohne Login).<br>Bitte in ~einer Stunde erneut laden.</div>`;
+      return;
+    }
+    if(res.status === 404){
+      content.innerHTML = `<div class="state error">Ordner nicht gefunden.<br>Prüfe owner/repo/branch/path im &lt;script&gt;-Block oben.</div>`;
+      return;
+    }
+    if(!res.ok) throw new Error("HTTP " + res.status);
+
+    const data = await res.json();
+    files = data
+      .filter(it => it.type === "file" && IMG_EXT.includes((it.name.split(".").pop() || "").toLowerCase()))
+      .map(it => ({ name: it.name, url: it.download_url }))
+      .sort((a, b) => a.name.localeCompare(b.name, "de", { numeric: true }));
+
+    if(!files.length){
+      content.innerHTML = `<div class="state">Im Ordner <code>/${CONFIG.path}</code> wurden keine Bilddateien gefunden.</div>`;
+      $("#count").textContent = "0 Bilder";
+      return;
+    }
+    render();
+  }catch(err){
+    content.innerHTML = `<div class="state error">Konnte die Bilder nicht laden.<br>${err.message}</div>`;
+  }
+}
+
+$("#search").addEventListener("input", () => { if(files.length) render(); });
+document.querySelectorAll("#format button").forEach(b => {
+  b.onclick = () => {
+    format = b.dataset.fmt;
+    document.querySelectorAll("#format button").forEach(x => x.classList.toggle("active", x === b));
+  };
+});
+
+load();
+</script>
+</body>
+</html>
